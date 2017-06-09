@@ -12,7 +12,7 @@ namespace move_lavels
 {
     public partial class Form1 : Form
     {
-        int vx = -10, vy = -10;
+        int vx = -20, vy = -20;
         public Form1()
         {
             InitializeComponent();
@@ -24,18 +24,20 @@ namespace move_lavels
             label1.Top += vy;
 
             if (label1.Left <= 0)
-                vx = -vx;
+                vx = Math.Abs(vx);
             if (label1.Top <= 0)
-                vy = -vy;
+                vy = Math.Abs(vy);
             if (label1.Left >= ClientSize.Width - label1.Width)
-                vx =-vx;
+                vx = -Math.Abs(vx);
             if (label1.Top >= ClientSize.Height - label1.Height)
-                vy = -vy;
+                vy = -Math.Abs(vy);
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }
+       }
+
+
     }
 }
