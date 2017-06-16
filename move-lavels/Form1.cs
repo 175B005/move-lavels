@@ -20,9 +20,26 @@ namespace move_lavels
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+            Point cpos;
+            cpos = PointToClient(MousePosition);
+            //formに変換、VRとかで触ったりもこれ（２ｄなので、座標同士引いているだけ）
+
+            //formの左上↓
+            label2.Text = "" + cpos.X + "," + cpos.Y;
+            //window(スクリーン)の左上↓（絶対の座標）
+            label3.Text = "" + MousePosition.X + "," + MousePosition.Y;
+
+
+            //ennsyuu10
+            label4.Left = cpos.X - label4.Width/2;
+            label4.Top = cpos.Y - label4.Height/2;
+
+
+
             label1.Left += vx;
             label1.Top += vy;
-
+            //Math絶対値を取る
             if (label1.Left <= 0)
                 vx = Math.Abs(vx);
             if (label1.Top <= 0)
@@ -37,6 +54,26 @@ namespace move_lavels
         {
 
        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
 
 
     }
