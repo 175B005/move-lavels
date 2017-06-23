@@ -12,11 +12,19 @@ namespace move_lavels
 {
     public partial class Form1 : Form
     {
-        int vx = -20, vy = -20;
+        private static Random rand = new Random();
+        //ランダムを作成
+
+        int vx = 0, vy = 0;
         double iTime = 60;
         public Form1()
         {
             InitializeComponent();
+
+            vx += rand.Next(10, 30);
+            vy -= rand.Next(10, 30);
+            label1.Left = rand.Next(ClientSize.Width - label1.Width);
+            label1.Top = rand.Next(ClientSize.Height - label1.Height);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -96,6 +104,23 @@ namespace move_lavels
 
         private void label5_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           // Text = "" + rand.Next();
+            //さいころex↓
+           // Text += "," + ((rand.Next() % 6) + 1);
+            
+            //０以上指定の値未満の乱数
+            //Text += "/" + rand.Next(6);
+           // Text += "/" + rand.Next(1,7);//1~7まで
+            
+            //doubleで小数を求めた上で、最大最小を考える
+            //０．９９９＊６でも最大は６未満になるから↓
+            Text = "/" + (int)(rand.NextDouble() * 6 +1);
+
 
         }
 
