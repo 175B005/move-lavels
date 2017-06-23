@@ -77,13 +77,13 @@ namespace move_lavels
             label6.Left += vx1;
             label6.Top += vy1;
             if (label6.Left <= 0)
-                vx1 = -vx1;
+                vx1 = Math.Abs(vx1);
             if (label6.Top <= 0)
-                vy1 = -vy1;
+                vy1 = Math.Abs(vx1);
             if (label6.Left >= ClientSize.Width - label6.Width)
-                vx1 = -vx1;
+                vx1 = -Math.Abs(vx1);
             if (label6.Top >= ClientSize.Height - label6.Height)
-                vy1= -vy1;
+                vy1 = -Math.Abs(vx1);
 
         }
         void copy2()
@@ -101,13 +101,13 @@ namespace move_lavels
             label7.Top += vy2;
             //Math絶対値を取る
             if (label7.Left <= 0)
-                vx2 = -vx2;
+                vx2 = Math.Abs(vx2);
             if (label7.Top <= 0)
-                vy2 = -vy2;
-            if (label7.Left >= ClientSize.Width - label7.Width)
-                vx2 = -vx2;
-            if (label7.Top >= ClientSize.Height - label7.Height)
-                vy2 = -vy2;
+                vy2 = Math.Abs(vy2);
+            if (label7.Left >= ClientSize.Width - label1.Width)
+                vx2 = -Math.Abs(vx2);
+            if (label7.Top >= ClientSize.Height - label1.Height)
+                vy2 = -Math.Abs(vy2);
 
         }
 
