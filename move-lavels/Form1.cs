@@ -15,9 +15,8 @@ namespace move_lavels
         private static Random rand = new Random();
         //ランダムを作成
 
-        int vx = 0, vy = 0;
-        int vx1 = 0, vy1 = 0;
-        int vx2 = 0, vy2 = 0;
+        int[] vx = new int[3];//0~2の3個
+        int[] vy = new int[3];
 
         double iTime = 60;
 
@@ -26,15 +25,27 @@ namespace move_lavels
         public Form1()
         {
             InitializeComponent();
+            int idx;
+            for (idx = 0; idx < 3; idx++)
+            {
+                vx[idx] += rand.Next(10, 30);
+                vy[idx] -= rand.Next(10, 30);
+            }
+            /*vx[0] += rand.Next(10, 30);
+            vy[0] -= rand.Next(10, 30);
+            vx[1] += rand.Next(10, 30);
+            vy[1]-= rand.Next(10, 30);
+            vx[2] += rand.Next(10, 30);
+            vy[2] -= rand.Next(10, 30);*/
 
-            vx += rand.Next(10, 30);
-            vy -= rand.Next(10, 30);
-            vx1 += rand.Next(10, 30);
-            vy1 -= rand.Next(10, 30);
-            vx2 += rand.Next(10, 30);
-            vy2 -= rand.Next(10, 30);
             label1.Left = rand.Next(ClientSize.Width - label1.Width);
             label1.Top = rand.Next(ClientSize.Height - label1.Height);
+
+            label6.Left = rand.Next(ClientSize.Width - label6.Width);
+            label6.Top = rand.Next(ClientSize.Height - label6.Height);
+
+            label7.Left = rand.Next(ClientSize.Width - label7.Width);
+            label7.Top = rand.Next(ClientSize.Height - label7.Height);
 
         }
 
@@ -51,17 +62,17 @@ namespace move_lavels
                     // MessageBox.Show("gameover!!!!\n");
                 }
 
-            label1.Left += vx;
-            label1.Top += vy;
+            label1.Left += vx[0];
+            label1.Top += vy[0];
             //Math絶対値を取る
             if (label1.Left <= 0)
-                vx = Math.Abs(vx);
+                vx[0] = Math.Abs(vx[0]);
             if (label1.Top <= 0)
-                vy = Math.Abs(vy);
+                vy[0] = Math.Abs(vy[0]);
             if (label1.Left >= ClientSize.Width - label1.Width)
-                vx = -Math.Abs(vx);
+                vx[0] = -Math.Abs(vx[0]);
             if (label1.Top >= ClientSize.Height - label1.Height)
-                vy = -Math.Abs(vy);
+                vy[0] = -Math.Abs(vy[0]);
         }
         void copy1()
         {
@@ -74,16 +85,16 @@ namespace move_lavels
                     
                   //  MessageBox.Show("gameover!!!!\n");
                 }
-            label6.Left += vx1;
-            label6.Top += vy1;
+            label6.Left += vx[1];
+            label6.Top += vy[1];
             if (label6.Left <= 0)
-                vx1 = Math.Abs(vx1);
+                vx[1] = Math.Abs(vx[1]);
             if (label6.Top <= 0)
-                vy1 = Math.Abs(vx1);
+                vy[1] = Math.Abs(vx[1]);
             if (label6.Left >= ClientSize.Width - label6.Width)
-                vx1 = -Math.Abs(vx1);
+                vx[1] = -Math.Abs(vx[1]);
             if (label6.Top >= ClientSize.Height - label6.Height)
-                vy1 = -Math.Abs(vx1);
+                vy[1] = -Math.Abs(vx[1]);
 
         }
         void copy2()
@@ -97,17 +108,17 @@ namespace move_lavels
                 
                     //MessageBox.Show("gameover!!!!\n");
                 }
-            label7.Left += vx2;
-            label7.Top += vy2;
+            label7.Left += vx[2];
+            label7.Top += vy[2];
             //Math絶対値を取る
             if (label7.Left <= 0)
-                vx2 = Math.Abs(vx2);
+                vx[2] = Math.Abs(vx[2]);
             if (label7.Top <= 0)
-                vy2 = Math.Abs(vy2);
+                vy[2] = Math.Abs(vy[2]);
             if (label7.Left >= ClientSize.Width - label1.Width)
-                vx2 = -Math.Abs(vx2);
+                vx[2] = -Math.Abs(vx[2]);
             if (label7.Top >= ClientSize.Height - label1.Height)
-                vy2 = -Math.Abs(vy2);
+                vy[2] = -Math.Abs(vy[2]);
 
         }
 
